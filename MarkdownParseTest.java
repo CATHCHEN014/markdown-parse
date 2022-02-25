@@ -65,4 +65,12 @@ public class MarkdownParseTest {
         ArrayList<String> links = MarkdownParse.getLinks(contents);
         assertEquals(List.of("`google.com", "google.com", "ucsd.edu"), links);
     }
+
+    @Test //call getLink() on snippet2.md
+    public void snippet2() throws IOException{
+        Path fileName = Path.of("./snippet2.md");
+        String contents = Files.readString(fileName);
+        ArrayList<String> links = MarkdownParse.getLinks(contents);
+        assertEquals(List.of("b.com", "a.com(())", "example.com"), links);
+    }
 }
